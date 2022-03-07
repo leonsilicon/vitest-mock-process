@@ -93,7 +93,7 @@ expect(mocks.stdout).toHaveBeenCalledTimes(1);
 expect(mocks.log).toHaveBeenCalledWith('log payload');
 ```
 
-* You can mock generic methods not supported by default in `vitst-mock-process` with the `spyOnImplementing` function:
+* You can mock generic methods not supported by default in `vitest-mock-process` with the `spyOnImplementing` function:
 
 ```typescript
 import { spyOnImplementing } from 'vitest-mock-process';
