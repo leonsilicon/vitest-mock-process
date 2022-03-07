@@ -15,6 +15,7 @@
 	},
 	"type": "module",
 	"scripts": {
+		"release": "lionp",
 		"prepare": "lion-git-hooks",
 		"start": "node-ts ./src/index.ts",
 		"test": "vitest run",
@@ -35,6 +36,7 @@
 		"lint-staged": "^12.3.5",
 		"lion-git-hooks": "^1.0.7",
 		"lion-system": "^1.0.11",
+		"lionp": "^1.0.19",
 		"prettier": "^2.5.1",
 		"tsc-alias": "^1.6.4",
 		"typescript": "^4.6.2",
@@ -56,5 +58,8 @@
 		"deep-clone-fn": "^1.0.4",
 		"mimic-fn": "^4.0.0",
 		"rfdc": "^1.3.0"
+	},
+	"publishConfig": {
+		"directory": "dist"
 	}
 }
