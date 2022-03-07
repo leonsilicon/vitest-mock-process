@@ -16,6 +16,7 @@
 	"type": "module",
 	"scripts": {
 		"release": "lionp",
+		"build": "node-ts ./scripts/build.ts",
 		"prepare": "lion-git-hooks",
 		"start": "node-ts ./src/index.ts",
 		"test": "vitest run",
