@@ -1,6 +1,6 @@
 {
 	"name": "vitest-mock-process",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Easily mock Node.js process properties in Vitest.",
 	"license": "MIT",
 	"repository": {
