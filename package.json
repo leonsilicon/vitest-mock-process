@@ -28,32 +28,13 @@
 		"vitest": "<1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^16.2.1",
-		"@leonzalion/configs": "^1.1.7",
-		"@types/node": "^17.0.21",
+		"@leonzalion/configs": "^1.2.3",
+		"@types/node": "^17.0.23",
 		"desm": "^1.2.0",
-		"eslint": "^8.10.0",
 		"execa": "^6.1.0",
-		"lint-staged": "^12.3.5",
-		"lion-git-hooks": "^1.0.7",
-		"lion-system": "^1.0.11",
-		"lionp": "^1.0.19",
-		"prettier": "^2.5.1",
-		"tsc-alias": "^1.6.4",
-		"typescript": "^4.6.2",
-		"vitest": "^0.6.0"
-	},
-	"prettier": "@leonzalion/configs/prettier.cjs",
-	"commitlint": {
-		"extends": [
-			"@leonzalion/configs/commitlint.cjs"
-		]
-	},
-	"lint-staged": {
-		"*.{js,ts}": [
-			"pnpm run lint",
-			"pnpm run prettier"
-		]
+		"lion-system": "^1.0.17",
+		"typescript": "^4.6.3",
+		"vitest": "^0.8.3"
 	},
 	"dependencies": {
 		"deep-clone-fn": "^1.0.4",
