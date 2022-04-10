@@ -1,11 +1,14 @@
-/* eslint-disable node/prefer-global/process */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+/*
+eslint-disable
+node/prefer-global/process,
+@typescript-eslint/no-unsafe-assignment,
+@typescript-eslint/no-unsafe-call,
+@typescript-eslint/no-unsafe-return
+*/
 
-import { vi } from 'vitest';
-import type * as Vi from 'vitest';
 import deepCloneFunction from 'deep-clone-fn';
+import type * as Vi from 'vitest';
+import { vi } from 'vitest';
 
 const maybeMockRestore = (a: any): void =>
 	a.mockRestore && typeof a.mockRestore === 'function'

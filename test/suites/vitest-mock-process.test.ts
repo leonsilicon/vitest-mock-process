@@ -2,8 +2,8 @@
 /* eslint-disable unicorn/no-process-exit */
 
 import { Buffer } from 'node:buffer';
-import { describe, beforeEach, it, expect, afterAll, fn } from 'vitest';
 import type * as Vi from 'vitest';
+import { afterAll, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import type { MockedRunResult } from '~/index.js';
 import {
@@ -91,7 +91,7 @@ describe('Mock Process Stdout', () => {
 	});
 
 	it('should receive a callback', () => {
-		const cb = fn();
+		const cb = vi.fn();
 		process.stdout.write('', cb);
 		expect(mockStdout).toHaveBeenCalledTimes(1);
 		expect(mockStdout).toHaveBeenCalledWith(expect.anything(), cb);
@@ -143,7 +143,7 @@ describe('Mock Process Stderr', () => {
 	});
 
 	it('should receive a callback', () => {
-		const cb = fn();
+		const cb = vi.fn();
 		process.stderr.write('', cb);
 		expect(mockStderr).toHaveBeenCalledTimes(1);
 		expect(mockStderr).toHaveBeenCalledWith(expect.anything(), cb);
