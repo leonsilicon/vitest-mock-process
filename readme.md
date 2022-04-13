@@ -12,6 +12,22 @@ npm install --save-dev vitest-mock-process
 
 ## Usage
 
+Make sure to add the following to your `vitest.config.ts`:
+
+```typescript
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  // ...
+  test: {
+    deps: {
+      inline: ['vitest-mock-process'],
+    }
+    // ...
+  },
+});
+```
+
 ### JavaScript
 
 ```javascript

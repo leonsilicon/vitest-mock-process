@@ -28,7 +28,7 @@
 		"vitest": "<1"
 	},
 	"devDependencies": {
-		"@leonzalion/configs": "^1.2.10",
+		"@leonzalion/configs": "^1.2.14",
 		"@types/node": "^17.0.23",
 		"desm": "^1.2.0",
 		"execa": "^6.1.0",
