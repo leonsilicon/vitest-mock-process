@@ -1,4 +1,6 @@
-# vitest-mock-process [![npm version](https://badge.fury.io/js/vitest-mock-process.svg)](https://www.npmjs.com/package/vitest-mock-process)
+# vitest-mock-process 
+
+[![npm version](https://badge.fury.io/js/vitest-mock-process.svg)](https://www.npmjs.com/package/vitest-mock-process)
 
 Easily mock Node.js process properties in Vitest.
 
