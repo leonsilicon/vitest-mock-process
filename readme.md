@@ -4,7 +4,7 @@
 
 Easily mock Node.js process properties in Vitest.
 
-This repo is a port of EpicEric's amazing [jest-mock-process package for Jest](https://github.com/EpicEric/jest-mock-process).
+This repo is a port of EpicEric's amazing [jest-mock-process package](https://github.com/EpicEric/jest-mock-process) for Vitest.
 
 ## Installation
 
