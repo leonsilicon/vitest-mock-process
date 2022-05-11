@@ -1,4 +1,4 @@
-# vitest-mock-process 
+# vitest-mock-process
 
 [![npm version](https://img.shields.io/npm/v/vitest-mock-process)](https://npmjs.com/package/vitest-mock-process)
 
@@ -24,7 +24,7 @@ export default defineConfig({
   test: {
     deps: {
       inline: ['vitest-mock-process'],
-    }
+    },
     // ...
   },
 });
@@ -62,7 +62,12 @@ mockLog.mockRestore();
 ### TypeScript
 
 ```typescript
-import { mockProcessExit, mockProcessStdout, mockProcessStderr, mockConsoleLog } from 'vitest-mock-process';
+import {
+  mockProcessExit,
+  mockProcessStdout,
+  mockProcessStderr,
+  mockConsoleLog,
+} from 'vitest-mock-process';
 
 let mockExit = mockProcessExit();
 process.exit(1);
@@ -90,28 +95,28 @@ mockLog.mockRestore();
 
 ### Advanced usage
 
-* You can use `mockedRun` (or `asyncMockedRun`) to set-up a virtual environment that will automatically create and restore provided mocks:
+- You can use `mockedRun` (or `asyncMockedRun`) to set-up a virtual environment that will automatically create and restore provided mocks:
 
 ```typescript
 import { mockedRun, MockedRunResult } from 'vitest-mock-process';
 
 const mockRun: (_: () => any) => MockedRunResult = mockedRun({
-    stdout: mockProcessStdout,
-    stderr: mockProcessStderr,
-    exit: mockProcessExit,
-    log: mockConsoleLog,
+  stdout: mockProcessStdout,
+  stderr: mockProcessStderr,
+  exit: mockProcessExit,
+  log: mockConsoleLog,
 });
 const mocks: MockedRunResult = mockRun(() => {
-    process.stdout.write('stdout payload');
-    process.stderr.write('stderr payload');
-    process.exit(-1);
-    console.log('log payload');
+  process.stdout.write('stdout payload');
+  process.stderr.write('stderr payload');
+  process.exit(-1);
+  console.log('log payload');
 });
 expect(mocks.stdout).toHaveBeenCalledTimes(1);
 expect(mocks.log).toHaveBeenCalledWith('log payload');
 ```
 
-* You can mock generic methods not supported by default in `vitest-mock-process` with the `spyOnImplementing` function:
+- You can mock generic methods not supported by default in `vitest-mock-process` with the `spyOnImplementing` function:
 
 ```typescript
 import { spyOnImplementing } from 'vitest-mock-process';

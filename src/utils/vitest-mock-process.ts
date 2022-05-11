@@ -10,6 +10,8 @@ import deepCloneFunction from 'deep-clone-fn';
 import type * as Vi from 'vitest';
 import { vi } from 'vitest';
 
+import type { MockedRunResult } from '~/types/result.js';
+
 const maybeMockRestore = (a: any): void =>
 	a.mockRestore && typeof a.mockRestore === 'function'
 		? a.mockRestore()
@@ -78,12 +80,6 @@ export const mockConsoleLog = () =>
 		/* noop */
 	});
 
-export interface MockedRunResult {
-	[_: string]: Vi.SpyInstance;
-	error?: any;
-	result?: any;
-}
-
 /**
 	Helper function to run a synchronous function with provided mocks in place, as a virtual environment.
 
@@ -114,7 +110,7 @@ export const mockedRun =
 	Helper function to run an asynchronous function with provided mocks in place, as a virtual environment.
 
 	Every provided mock will be automatically restored when this function returns.
- */
+*/
 export const asyncMockedRun =
 	(callers: Record<string, () => Vi.SpyInstance>) =>
 	async (f: () => Promise<any>) => {

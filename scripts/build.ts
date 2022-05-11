@@ -5,4 +5,4 @@ chProjectDir(import.meta.url);
 rmDist();
 exec('tsc');
 exec('tsc-alias');
-copyPackageFiles();
+await copyPackageFiles({ commonjs: false });
