@@ -84,9 +84,9 @@ describe('Mock Process Stdout', () => {
 	});
 
 	it('should receive an encoding', () => {
-		process.stdout.write('Hello, world!', 'utf-8');
+		process.stdout.write('Hello, world!', 'utf8');
 		expect(mockStdout).toHaveBeenCalledTimes(1);
-		expect(mockStdout).toHaveBeenCalledWith('Hello, world!', 'utf-8');
+		expect(mockStdout).toHaveBeenCalledWith('Hello, world!', 'utf8');
 		expect(mockStdout).toReturnWith(true);
 	});
 
@@ -136,9 +136,9 @@ describe('Mock Process Stderr', () => {
 	});
 
 	it('should receive an encoding', () => {
-		process.stderr.write('Hello, world!', 'utf-8');
+		process.stderr.write('Hello, world!', 'utf8');
 		expect(mockStderr).toHaveBeenCalledTimes(1);
-		expect(mockStderr).toHaveBeenCalledWith('Hello, world!', 'utf-8');
+		expect(mockStderr).toHaveBeenCalledWith('Hello, world!', 'utf8');
 		expect(mockStderr).toReturnWith(true);
 	});
 

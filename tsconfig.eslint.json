@@ -6,7 +6,6 @@
 		"typings",
 		"scripts",
 		".eslintrc.cjs",
-		".markdownlint.cjs",
 		"vitest.config.ts"
 	]
 }

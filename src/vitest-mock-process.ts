@@ -1,9 +1,9 @@
 /*
-eslint-disable
-node/prefer-global/process,
-@typescript-eslint/no-unsafe-assignment,
-@typescript-eslint/no-unsafe-call,
-@typescript-eslint/no-unsafe-return
+	eslint-disable
+	node/prefer-global/process,
+	@typescript-eslint/no-unsafe-assignment,
+	@typescript-eslint/no-unsafe-call,
+	@typescript-eslint/no-unsafe-return
 */
 
 import deepCloneFunction from 'deep-clone-fn';
@@ -21,12 +21,12 @@ type FunctionPropertyNames<T> = {
 type ArgsType<T> = T extends (...args: infer A) => any ? A : never;
 
 /**
- * Helper function for manually creating new spy mocks of functions not supported by this module.
- *
- * @param target Object containing the function that will be mocked.
- * @param property Name of the function that will be mocked.
- * @param impl Mock implementation of the target's function. The return type must match the target function's.
- */
+	Helper function for manually creating new spy mocks of functions not supported by this module.
+
+	@param target Object containing the function that will be mocked.
+	@param property Name of the function that will be mocked.
+	@param impl Mock implementation of the target's function. The return type must match the target function's.
+*/
 export function spyOnImplementing<
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	T extends object,
@@ -40,12 +40,10 @@ export function spyOnImplementing<
 }
 
 /**
- * Helper function to create a mock of the Node.js method
- * `process.exit(code: number)`.
- *
- * @param {Object} err Optional error to raise. If unspecified or falsy, calling `process.exit` will resume code
- * execution instead of raising an error.
- */
+	Helper function to create a mock of the Node.js method `process.exit(code: number)`.
+
+	@param err Optional error to raise. If unspecified or falsy, calling `process.exit` will resume code execution instead of raising an error.
+*/
 export const mockProcessExit = (err?: any) =>
 	spyOnImplementing(
 		process,
@@ -61,23 +59,20 @@ export const mockProcessExit = (err?: any) =>
 	);
 
 /**
- * Helper function to create a mock of the Node.js method
- * `process.stdout.write(text: string, callback?: function): boolean`.
- */
+	Helper function to create a mock of the Node.js method `process.stdout.write(text: string, callback?: function): boolean`.
+*/
 export const mockProcessStdout = () =>
 	spyOnImplementing(process.stdout, 'write', () => true);
 
 /**
- * Helper function to create a mock of the Node.js method
- * `process.stderr.write(text: string, callback?: function): boolean`.
- */
+	Helper function to create a mock of the Node.js method `process.stderr.write(text: string, callback?: function): boolean`.
+*/
 export const mockProcessStderr = () =>
 	spyOnImplementing(process.stderr, 'write', () => true);
 
 /**
- * Helper function to create a mock of the Node.js method
- * `console.log(message: any)`.
- */
+	Helper function to create a mock of the Node.js method `console.log(message: any)`.
+*/
 export const mockConsoleLog = () =>
 	spyOnImplementing(console, 'log', () => {
 		/* noop */
@@ -90,10 +85,10 @@ export interface MockedRunResult {
 }
 
 /**
- * Helper function to run a synchronous function with provided mocks in place, as a virtual environment.
- *
- * Every provided mock will be automatically restored when this function returns.
- */
+	Helper function to run a synchronous function with provided mocks in place, as a virtual environment.
+
+	Every provided mock will be automatically restored when this function returns.
+*/
 export const mockedRun =
 	(callers: Record<string, () => Vi.SpyInstance>) => (f: () => any) => {
 		const mocks: MockedRunResult = {};
@@ -116,9 +111,9 @@ export const mockedRun =
 	};
 
 /**
- * Helper function to run an asynchronous function with provided mocks in place, as a virtual environment.
- *
- * Every provided mock will be automatically restored when this function returns.
+	Helper function to run an asynchronous function with provided mocks in place, as a virtual environment.
+
+	Every provided mock will be automatically restored when this function returns.
  */
 export const asyncMockedRun =
 	(callers: Record<string, () => Vi.SpyInstance>) =>
